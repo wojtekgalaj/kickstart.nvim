@@ -16,3 +16,5 @@ opt.scrolloff = 10
 -- Case insensitive searching UNLESS /C or capital in search
 opt.ignorecase = true
 opt.smartcase = true
+
+opt.signcolumn = "yes"

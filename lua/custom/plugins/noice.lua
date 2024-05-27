@@ -14,7 +14,7 @@ return {
       "rcarriga/nvim-notify",
     },
     config = function()
-      require("custom.noice").setup()
+      require "custom.noice"
     end,
   },
 }

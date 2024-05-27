@@ -1,5 +1,7 @@
-I got lost trying to move what I had here to a clone of TJ's config. 
+# Folding
+I don't know what I have done in the previous config that I am not doing here.
+I keep seeing the "NO fold found" error here but my options are the same.
+TODO: make sure they are really the same
 
-I might want to just start from that clone directly?
-
-Do I really feel like all this bs just to move to lazy?
+# Emmet
+Just not installed yet

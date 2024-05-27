@@ -121,9 +121,26 @@ which_key.register({
         "<cmd>Neogit<cr>",
         "[V]ersion control",
       },
+      q = {
+        "<cmd>DiffviewClose<cr>",
+        "[Q]uit",
+      },
+      r = {
+        "<cmd>NeogitResetState<cr>",
+        "[Q]uit",
+      },
       b = {
-        "<cmd>Git blame<cr>",
-        "[B]lame",
+        name = "[B]lame",
+        {
+          e = {
+            "<cmd>DiffviewFileHistory<cr>",
+            "[E]verything",
+          },
+          c = {
+            "<cmd>DiffviewFileHistory %<cr>",
+            "[C]urrent",
+          },
+        },
       },
     },
     l = {
