@@ -31,6 +31,7 @@ c.setup {
     enable = true,
   },
 }
+
 local opt = vim.opt
 
 opt.foldmethod = "expr"

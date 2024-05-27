@@ -104,7 +104,6 @@ return {
         "gopls",
         "svelte",
         "tailwindcss",
-        "markdown",
         "tsserver",
         "eslint",
         "yamlls",
@@ -143,13 +142,27 @@ return {
         end,
       })
 
+      local use_these_if_prettierrc_found = function(formatters)
+        if not formatters then
+          formatters = { "prettierd", "prettier" }
+        end
+        local prettierrc_exists = vim.fn.findfile(".prettierrc", ".;")
+        local prettierrc_json_exists = vim.fn.findfile(".prettierrc.json", ".;")
+        if prettierrc_exists or prettierrc_json_exists then
+          return formatters
+        else
+          return nil
+        end
+      end
+
       -- Autoformatting Setup
       require("conform").setup {
         formatters_by_ft = {
           lua = { "stylua" },
-          typescript = { "prettierd" },
-          javascript = { "prettierd" },
-          json = { "prettierd" },
+          typescript = use_these_if_prettierrc_found(),
+          typescriptreact = use_these_if_prettierrc_found(),
+          javascript = use_these_if_prettierrc_found(),
+          json = use_these_if_prettierrc_found(),
         },
       }
 
