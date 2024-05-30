@@ -130,7 +130,11 @@ which_key.register({
         "[Q]uit",
       },
       b = {
-        name = "[B]lame",
+        "<cmd>BlameToggle<cr>",
+        "[B]lame",
+      },
+      h = {
+        name = "[H]istory",
         {
           e = {
             "<cmd>DiffviewFileHistory<cr>",
