@@ -18,3 +18,8 @@ opt.ignorecase = true
 opt.smartcase = true
 
 opt.signcolumn = "yes"
+
+opt.shiftwidth = 2
+opt.tabstop = 2
+opt.softtabstop = 2
+opt.conceallevel = 2
