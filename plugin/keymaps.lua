@@ -145,6 +145,18 @@ which_key.register({
     },
     l = {
       name = "[L]SP",
+      o = {
+        "<cmd>LspStop<cr>",
+        "Turn [O]ff",
+      },
+      s = {
+        "<cmd>LspStart<cr>",
+        "[S]tart",
+      },
+      e = {
+        "<cmd>LspRestart<cr>",
+        "R[E]start",
+      },
       c = {
         name = "[C]ode",
         a = {
