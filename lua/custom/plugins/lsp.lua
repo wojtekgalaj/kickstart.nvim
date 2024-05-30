@@ -142,6 +142,10 @@ return {
         end,
       })
 
+      -- This method checks for if a config file for your formatter exists before
+      -- returning the formatters table or nil
+      ---@param formatters? table
+      ---@return table?
       local use_these_if_prettierrc_found = function(formatters)
         if not formatters then
           formatters = { "prettierd", "prettier" }
