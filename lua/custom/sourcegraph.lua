@@ -42,6 +42,18 @@ local function cody_task()
 end
 
 local wk = require "which-key"
+local cmd = require "sg.cody.commands"
+
+-- normal mode
+wk.register({
+  ["<leader>"] = {
+    c = {
+      name = "[C]ody",
+      a = { cody_ask, "[A]sk Anything" },
+      h = { cmd.history(), "Conversation [H]istory" },
+    },
+  },
+}, { mode = "n", silent = true, noremap = true })
 
 -- visual mode
 wk.register({
@@ -56,13 +68,3 @@ wk.register({
     },
   },
 }, { mode = "v", silent = true, noremap = true })
-
--- normal mode
-wk.register({
-  ["<leader>"] = {
-    c = {
-      name = "[C]ody",
-      a = { cody_ask, "Ask Anything" },
-    },
-  },
-}, { mode = "n", silent = true, noremap = true })

@@ -80,11 +80,34 @@ which_key.register({
     },
   },
   ["<leader>"] = {
+    ["<space>"] = {
+      builtin.find_files,
+      "[SPACE] List files in project",
+    },
+    ["/"] = {
+      builtin.current_buffer_fuzzy_find,
+      "[/] Fuzzily search in current buffer]",
+    },
+    x = {
+      name = "E[X]ecute",
+      l = {
+        "<cmd>.lua<cr>",
+        "[L]ine",
+      },
+      f = {
+        "<cmd>source %<cr>",
+        "[F]ile",
+      },
+    },
     b = {
       name = "[B]uffer",
       d = {
         name = "[D]elete",
         "<cmd>bdel<cr>",
+      },
+      c = {
+        "<cmd>VenterToggle<cr>",
+        "[C]enter",
       },
     },
     j = {
@@ -240,6 +263,29 @@ which_key.register({
       q = {
         builtin.quickfixhistory,
         "[Q]uickfix history",
+      },
+    },
+    t = {
+      "[T]rouble",
+      d = {
+        "<cmd>Trouble diagnostics toggle<cr>",
+        "All [D]iagnostics",
+      },
+      b = {
+        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+        "[B]uffer diagnostics",
+      },
+      l = {
+        "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+        "[L]sp",
+      },
+      o = {
+        "<cmd>Trouble loclist toggle",
+        "L[O]clist",
+      },
+      f = {
+        "<cmd>Trouble qflist toggle",
+        "Quick[F]ix",
       },
     },
   },

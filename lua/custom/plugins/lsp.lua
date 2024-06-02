@@ -23,6 +23,10 @@ return {
         },
       }
 
+      vim.diagnostic.config { virtual_text = false, signs = true, underline = true }
+
+      print(vim.inspect(vim.diagnostic.config())
+
       local capabilities = nil
       if pcall(require, "cmp_nvim_lsp") then
         capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -35,12 +39,23 @@ return {
         gopls = true,
         lua_ls = true,
         rust_analyzer = true,
+        graphql = {
+          config = {
+            cmd = { "npx graphql-lsp", "--stdio" },
+          },
+        },
         svelte = true,
         templ = true,
         cssls = true,
-
-        -- Probably want to disable formatting for this lang server
-        tsserver = true,
+        tsserver = {
+          config = {
+            cmd = { "typescript-language-server", "--stdio" },
+            virtual_text = false,
+          },
+          server_capabilities = {
+            documentFormattingProvider = false,
+          },
+        },
 
         jsonls = {
           settings = {
@@ -101,6 +116,7 @@ return {
         "stylua",
         "lua_ls",
         "delve",
+        "graphql",
         "gopls",
         "svelte",
         "tailwindcss",
