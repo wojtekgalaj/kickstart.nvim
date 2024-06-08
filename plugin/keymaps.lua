@@ -1,4 +1,6 @@
 local set = vim.keymap.set
+local dap = require "dap"
+local widgets = require "dap.ui.widgets"
 
 set("n", "<leader>x", "<cmd>.lua<CR>", { desc = "Execute the current line" })
 set("n", "<leader><leader>x", "<cmd>source %<CR>", { desc = "Execute the current file" })
@@ -286,6 +288,25 @@ which_key.register({
       f = {
         "<cmd>Trouble qflist toggle",
         "Quick[F]ix",
+      },
+    },
+    d = {
+      name = "[D]ebugger",
+      s = {
+        dap.continue,
+        "[S]tart debugging",
+      },
+      b = {
+        dap.toggle_breakpoint,
+        "toggle [B]reakpoint",
+      },
+      n = {
+        dap.step_over,
+        "step [N]ext",
+      },
+      l = {
+        widgets.hover,
+        "Hove[l]",
       },
     },
   },
