@@ -17,6 +17,7 @@ require("mason-tool-installer").setup {
   ensure_installed = servers,
 }
 
+
 -- Setup for diagnostics UI. I don't like virtual text or the underlines.
 -- A mark in the gutter is cleaner and quite sufficient.
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -31,31 +32,24 @@ local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
-print('runtime_path for lspconfig', runtime_path)
-
-local on_attach = function(client, bufnr)
-  require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
-  local nmap = function(keys, func, desc)
-    if desc then
-
-      desc = "LSP: " .. desc
-    end
-
-    vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
-  end
-
-  -- See `:help K` for why this keymap
-  nmap("K", vim.lsp.buf.hover, "Hover Documentation")
-end
 
 -- nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
+for _, lsp in ipairs(servers) do
+  require("lspconfig")[lsp].setup {
+    capabilities = capabilities
+  }
+end
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(ev)
+		vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = ev.buf, desc = "Hover LSP docs" })
+  end,
+})
 
 require("lspconfig").lua_ls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
   settings = {
     Lua = {
       runtime = {
@@ -69,7 +63,7 @@ require("lspconfig").lua_ls.setup {
       },
       workspace = {
         library = vim.api.nvim_get_runtime_file("", true),
-        checkThirdParty = true,
+        checkThirdParty = false,
       },
       -- Do not send telemetry data containing a randomized but unique identifier
       telemetry = { enable = false },

@@ -2,9 +2,6 @@ local set = vim.keymap.set
 local dap = require "dap"
 local widgets = require "dap.ui.widgets"
 
-set("n", "<leader>x", "<cmd>.lua<CR>", { desc = "Execute the current line" })
-set("n", "<leader><leader>x", "<cmd>source %<CR>", { desc = "Execute the current file" })
-
 -- Clear highlight on enter. This is for clearing search highlights.
 set("n", "<CR>", function()
   ---@diagnostic disable-next-line: undefined-field
@@ -282,12 +279,31 @@ which_key.register({
         "[L]sp",
       },
       o = {
-        "<cmd>Trouble loclist toggle",
+        "<cmd>Trouble loclist toggle<cr>",
         "L[O]clist",
       },
       f = {
-        "<cmd>Trouble qflist toggle",
+        "<cmd>Trouble qflist toggle<cr>",
         "Quick[F]ix",
+      },
+      t = {
+        "[T]imer",
+        {
+          "<cmd>TimerStart 40min<cr>",
+          "Start [T]imer",
+        },
+        {
+          "<cmd>TimerStop<cr>",
+          "St[O]p timer",
+        },
+        {
+          "<cmd>TimerHide<cr>",
+          "[H]ide timer",
+        },
+        {
+          "<cmd>TimerPause<cr>",
+          "[P]ause timer",
+        },
       },
     },
     d = {
