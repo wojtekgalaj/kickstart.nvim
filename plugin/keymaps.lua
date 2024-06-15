@@ -2,17 +2,6 @@ local set = vim.keymap.set
 local dap = require "dap"
 local widgets = require "dap.ui.widgets"
 
--- Clear highlight on enter. This is for clearing search highlights.
-set("n", "<CR>", function()
-  ---@diagnostic disable-next-line: undefined-field
-  if vim.opt.hlsearch:get() then
-    vim.cmd.nohl()
-    return ""
-  else
-    return "<CR>"
-  end
-end, { expr = true })
-
 set("n", "<Left>", "<c-w>5<")
 set("n", "<Right>", "<c-w>5>")
 set("n", "<Up>", "<C-W>+")

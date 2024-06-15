@@ -7,6 +7,7 @@ return {
       require("mini.comment").setup {}
       require("mini.statusline").setup {}
       require("mini.diff").setup {}
+      require("mini.jump2d").setup {}
     end,
   },
 }
