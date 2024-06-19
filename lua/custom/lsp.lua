@@ -73,5 +73,4 @@ config.lua_ls.setup {
   },
 }
 
-config.denols.setup {}
 config.gitlab_ci_ls.setup {}
