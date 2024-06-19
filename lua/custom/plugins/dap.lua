@@ -17,15 +17,6 @@ return {
 
       require("nvim-dap-virtual-text").setup {}
 
-      -- Handled by nvim-dap-go
-      -- dap.adapters.go = {
-      --   type = "server",
-      --   port = "${port}",
-      --   executable = {
-      --     command = "dlv",
-      --     args = { "dap", "-l", "127.0.0.1:${port}" },
-      --   },
-      -- }
       dap.set_log_level "DEBUG"
 
       dap.adapters.node2 = {
