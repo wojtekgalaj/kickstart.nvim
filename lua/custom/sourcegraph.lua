@@ -50,7 +50,7 @@ wk.register({
     c = {
       name = "[C]ody",
       a = { cody_ask, "[A]sk Anything" },
-      h = { cmd.history(), "Conversation [H]istory" },
+      l = { cmd.chat(false), "Open [L]ast Chat" },
     },
   },
 }, { mode = "n", silent = true, noremap = true })
