@@ -138,7 +138,7 @@ which_key.register({
       },
       r = {
         "<cmd>NeogitResetState<cr>",
-        "[Q]uit",
+        "[R]eset",
       },
       b = {
         "<cmd>BlameToggle<cr>",
