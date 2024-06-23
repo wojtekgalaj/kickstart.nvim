@@ -5,8 +5,6 @@ local servers = {
   "gopls",
   "svelte",
   "tailwindcss",
-  "tsserver",
-  "denols",
   "eslint",
   "yamlls",
   "cssls",
